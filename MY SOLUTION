@@ -23,7 +23,7 @@ makeCachematrix<- function(x=matrix()) {
       dimnames = dnx[2:1])
   }
   
-  ## Now we continue with  the makeCachematrix function
+  ## Now we continue with  the rest of the makeCachematrix function
   
   setinverse<-function (ginv)inverse<<-ginv
   getinverse<-function()inverse
