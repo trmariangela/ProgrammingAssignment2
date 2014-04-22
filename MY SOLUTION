@@ -1,4 +1,4 @@
-##This function creates a special "matrix" object that can cache its inverse
+##The makeCachematrix function creates a special "matrix" object that can cache its inverse
 
 makeCachematrix<- function(x=matrix()) {
   inverse<-NULL
@@ -7,8 +7,12 @@ makeCachematrix<- function(x=matrix()) {
     inverse<<-NULL
   }
   get<-function()x
-  ##GINV Function computes the generalized inverse: GINV( matrix)where matrix is a numeric matrix or literal. 
-##The GINV function creates the Moore-Penrose generalized inverse of matrix. 
+  
+  
+  ## Now we need a function that computes the inverse of a matrix  
+  ## GINV( matrix) Function computes the generalized inverse where matrix is a numeric matrix or literal. 
+##The GINV function creates the Moore-Penrose generalized inverse of a matrix. 
+
   ginv<-function(X, tol = sqrt(.Machine$double.eps))
   {        dnx <- dimnames(X)
     if(is.null(dnx)) dnx <- vector("list", 2)
@@ -19,11 +23,15 @@ makeCachematrix<- function(x=matrix()) {
       dimnames = dnx[2:1])
   }
   
+  ## Now we continue with  the makeCachematrix function
+  
   setinverse<-function (ginv)inverse<<-ginv
   getinverse<-function()inverse
   list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
-##This function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
+
+
+##The cacheSolve  function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
 ##If the inverse has already been calculated (and the matrix has not changed), 
 ##then the cachesolve should retrieve the inverse from the cache.
 
