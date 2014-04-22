@@ -1,0 +1,34 @@
+
+makeCachematrix<- function(x=matrix()) {
+  inverse<-NULL
+  set<-function (y){
+    x<<-y
+    inverse<<-NULL
+  }
+  get<-function()x
+  ginv<-function(X, tol = sqrt(.Machine$double.eps))
+  {
+    ## Generalized Inverse of a Matrix
+    dnx <- dimnames(X)
+    if(is.null(dnx)) dnx <- vector("list", 2)
+    s <- svd(X)
+    nz <- s$d > tol * s$d[1]
+    structure(
+      if(any(nz)) s$v[, nz] %*% (t(s$u[, nz])/s$d[nz]) else X,
+      dimnames = dnx[2:1])
+  }
+  
+  setinverse<-function (ginv)inverse<<-ginv
+  getinverse<-function()inverse
+  list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
+}
+cacheSolve<-function(x,...){
+  inverse<-x$getinverse()
+  if(!is.null(inverse)) {message("getting cached data")
+  return(inverse)
+}
+data<-x$get()
+invesre<-ginv(data,...)
+x$setinverse(inverse)
+inverse
+}
