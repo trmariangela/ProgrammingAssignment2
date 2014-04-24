@@ -15,7 +15,10 @@
 install.packages(MASS)   ##GINV function is found in package MASS, So, we need to install package MASS
 library(MASS)
 
-makeCachematrix<- function(x=matrix()) {
+makeCachematrix<- function(x=matrix()) {      ##We are following the example of the programming assignment 2 that you can see here:
+                                              ## "https://class.coursera.org/rprog-002/human_grading/view/courses/972078/assessments/3/submissions"
+                                              ## We replace "numeric" with "matrix", "m" with inverse,  "mean" with "ginv", "setmean" with "setinverse",
+                                              ## "getmean" wirh "getinverse", "x$getmean" with "x$getinversre" and x$setmean with x$setinverse"
   inverse<-NULL
   set<-function (y){
     x<<-y
