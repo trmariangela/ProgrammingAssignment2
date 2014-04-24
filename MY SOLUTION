@@ -1,15 +1,19 @@
 ## We are following the example of the programming assignment 2 that you can see here:
-## https://class.coursera.org/rprog-002/human_grading/view/courses/972078/assessments/3/submissions
+## "https://class.coursera.org/rprog-002/human_grading/view/courses/972078/assessments/3/submissions"
 ## We replace "numeric" with "matrix", "m" with inverse,  "mean" with "ginv", "setmean" with "setinverse",
-## "getmean" wirh "getinverse"
+## "getmean" wirh "getinverse", "x$getmean" with "x$getinversre" and x$setmean with x$setinverse"
 ## Now we need a function that compute the inverse of a matrix  
 ## GINV( matrix) Function computes the generalized inverse where matrix is a numeric matrix or literal. 
 ## The GINV function creates the Moore-Penrose generalized inverse of a matrix. 
 ## GINV function is found in package MASS
 ## Extensive information about function GINV can be found here: 
-## http://stat.ethz.ch/R-manual/R-patched/library/MASS/html/ginv.html
+## "http://stat.ethz.ch/R-manual/R-patched/library/MASS/html/ginv.html"
+## So, we need to install package MASS
+## Here, you can find directions to install packages in R:
+## "http://cran.r-project.org/doc/manuals/R-admin.html#Installing-packages"
 
-
+install.packages(MASS)
+library(MASS)
 
 makeCachematrix<- function(x=matrix()) {
   inverse<-NULL
