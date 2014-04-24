@@ -6,6 +6,7 @@
 ## Now we need a function that computes the inverse of a matrix  
 ## GINV( matrix) Function computes the generalized inverse where matrix is a numeric matrix or literal. 
 ## The GINV function creates the Moore-Penrose generalized inverse of a matrix. 
+## GINV function is found in package MASS
 
 
 
@@ -16,22 +17,6 @@ makeCachematrix<- function(x=matrix()) {
     inverse<<-NULL
   }
   get<-function()x
-  
-  
-  
-
-  ginv<-function(X, tol = sqrt(.Machine$double.eps))
-  {        dnx <- dimnames(X)
-    if(is.null(dnx)) dnx <- vector("list", 2)
-    s <- svd(X)
-    nz <- s$d > tol * s$d[1]
-    structure(
-      if(any(nz)) s$v[, nz] %*% (t(s$u[, nz])/s$d[nz]) else X,
-      dimnames = dnx[2:1])
-  }
-  
-  ## Now we continue with  the rest of the makeCachematrix function
-  
   setinverse<-function (ginv)inverse<<-ginv
   getinverse<-function()inverse
   list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
