@@ -1,12 +1,13 @@
-## The makeCachematrix function creates a special "matrix" object that can cache its inverse
 ## We are following the example of the programming assignment 2 that you can see here:
 ## https://class.coursera.org/rprog-002/human_grading/view/courses/972078/assessments/3/submissions
 ## We replace "numeric" with "matrix", "m" with inverse,  "mean" with "ginv", "setmean" with "setinverse",
 ## "getmean" wirh "getinverse"
-## Now we need a function that computes the inverse of a matrix  
+## Now we need a function that compute the inverse of a matrix  
 ## GINV( matrix) Function computes the generalized inverse where matrix is a numeric matrix or literal. 
 ## The GINV function creates the Moore-Penrose generalized inverse of a matrix. 
 ## GINV function is found in package MASS
+## Extensive information about function GINV can be found here: 
+## http://stat.ethz.ch/R-manual/R-patched/library/MASS/html/ginv.html
 
 
 
@@ -21,11 +22,6 @@ makeCachematrix<- function(x=matrix()) {
   getinverse<-function()inverse
   list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
-
-
-##The cacheSolve  function computes the inverse of the special "matrix" returned by makeCacheMatrix above.
-##If the inverse has already been calculated (and the matrix has not changed), 
-##then the cachesolve should retrieve the inverse from the cache.
 
 cacheSolve<-function(x,...){
   inverse<-x$getinverse()
