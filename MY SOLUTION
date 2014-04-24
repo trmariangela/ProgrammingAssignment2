@@ -12,7 +12,7 @@
 ## Here, you can find directions to install packages in R:
 ## "http://cran.r-project.org/doc/manuals/R-admin.html#Installing-packages"
 
-install.packages(MASS)
+install.packages(MASS)   ##GINV function is found in package MASS, So, we need to install package MASS
 library(MASS)
 
 makeCachematrix<- function(x=matrix()) {
@@ -22,7 +22,10 @@ makeCachematrix<- function(x=matrix()) {
     inverse<<-NULL
   }
   get<-function()x
-  setinverse<-function (ginv)inverse<<-ginv
+  setinverse<-function (ginv)inverse<<-ginv  ##GINV( matrix) Function computes the generalized inverse where matrix is a numeric matrix or literal. 
+                                              ## The GINV function creates the Moore-Penrose generalized inverse of a matrix. 
+                                              ## GINV function is found in package MASS that we  have installed 
+
   getinverse<-function()inverse
   list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
