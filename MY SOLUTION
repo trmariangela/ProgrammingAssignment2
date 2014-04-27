@@ -12,7 +12,7 @@
 ## Here, you can find directions to install packages in R:
 ## "http://cran.r-project.org/doc/manuals/R-admin.html#Installing-packages"
 
-install.packages(MASS)   ## we need to install package MASS in order to use function
+install.packages("MASS")   ## we need to install package MASS in order to use function
                          ##GINV that creates the generalized inversed of a matric
 library(MASS)
 
